@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','Web\AppController@getApp')->middleWare('auth');
+
+Route::get('/','Web\AppController@getLogin');
