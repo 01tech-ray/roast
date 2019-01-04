@@ -34,5 +34,10 @@ return [
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
+    'github' => [
+        'client_id' => env('GIT_CLIENT_ID','d1278788de07e1c0657e'),
+        'client_secret' => env('GIT_CLIENT_SECRET','b83bdd885a5c616a7615941130ba245b15ff3f11'),
+        'redirect' => env('GIT_REDIRECT','http://roast.test/auth/github/callback')
+    ]
 
 ];
