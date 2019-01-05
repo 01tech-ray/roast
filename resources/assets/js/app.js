@@ -12,6 +12,7 @@ try {
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 import Vue from 'vue';
+import router from './routes.js';
 
 window.axios = require('axios');
 
@@ -31,4 +32,7 @@ if (token) {
     console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
 }
 
-new Vue().$mount('#app');
+ 
+new Vue({
+    router
+}).$mount('#app');
