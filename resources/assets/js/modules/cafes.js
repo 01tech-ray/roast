@@ -11,7 +11,7 @@ export const cafes ={
         cafe:{},
         cafeLoadStatus:0
     },
-    actions:{
+    actions :{
         loadCafes({commit}){
             commit('setCafesLoadStatus',1);
 

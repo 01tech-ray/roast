@@ -11365,8 +11365,6 @@ try {
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-
-
 window.axios = __webpack_require__(18);
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
@@ -11384,6 +11382,9 @@ if (token) {
 } else {
     console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
 }
+
+
+
 
 new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
     router: __WEBPACK_IMPORTED_MODULE_1__routes_js__["a" /* default */],
@@ -56029,6 +56030,10 @@ exports.push([module.i, "\n\n", ""]);
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(68);
+//
+//
+//
 //
 //
 //
@@ -56040,7 +56045,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  created: function created() {
+    this.$store.dispatch('loadCafes');
+  },
+
+  computed: {
+    // ...mapState({
+    //   cafesLoadStatus: state=> state.cafes.cafesLoadStatus,
+    //   cafes: state=> state.cafes.cafes
+    // })
+    // 获取 cafes 加载状态
+    cafesLoadStatus: function cafesLoadStatus() {
+      return this.$store.getters.getCafesLoadStatus;
+    },
+
+
+    // 获取 cafes
+    cafes: function cafes() {
+      return this.$store.getters.getCafes;
+    }
+  }
+});
 
 /***/ }),
 /* 58 */
@@ -56050,7 +56077,53 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c("div", [
+    _c(
+      "span",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.cafesLoadStatus === 1,
+            expression: "cafesLoadStatus === 1"
+          }
+        ]
+      },
+      [_vm._v("加载中...")]
+    ),
+    _vm._v(" "),
+    _c(
+      "span",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.cafesLoadStatus === 2,
+            expression: "cafesLoadStatus === 2"
+          }
+        ]
+      },
+      [_vm._v("数据加载成功！")]
+    ),
+    _vm._v(" "),
+    _c(
+      "span",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.cafesLoadStatus === 3,
+            expression: "cafesLoadStatus === 3"
+          }
+        ]
+      },
+      [_vm._v("数据加载失败！")]
+    ),
+    _vm._v("\n  test\n")
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
