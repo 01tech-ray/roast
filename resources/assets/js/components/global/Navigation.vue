@@ -80,10 +80,12 @@
     export default {
         computed:{
             userLoadStatus(){
-
+                    return 2
             },
             user(){
-                
+                return{
+                    avatar:'/favicon.ico'
+                }
             }
         }
     }
