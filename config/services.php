@@ -38,6 +38,9 @@ return [
         'client_id' => env('GIT_CLIENT_ID','d1278788de07e1c0657e'),
         'client_secret' => env('GIT_CLIENT_SECRET','b83bdd885a5c616a7615941130ba245b15ff3f11'),
         'redirect' => env('GIT_REDIRECT','http://roast.test/auth/github/callback')
+    ],
+    'gaode' => [
+        'ws_api_key' => env('GAODE_MAPS_WS_API_KEY'),
     ]
 
 ];
