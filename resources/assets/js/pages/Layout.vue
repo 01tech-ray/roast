@@ -16,7 +16,7 @@ import Navigation from '../components/global/Navigation.vue';
           Navigation
       },
       created(){
-        this.$store.dispatch('loadCafes')
+        this.$store.dispatch('cafes/loadCafes')
       }
   }
 </script>

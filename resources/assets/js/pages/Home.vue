@@ -18,19 +18,19 @@
       
     },
     computed:{
-      // ...mapState({
-      //   cafesLoadStatus: state=> state.cafes.cafesLoadStatus,
-      //   cafes: state=> state.cafes.cafes
-      // })
-      // 获取 cafes 加载状态
-            cafesLoadStatus(){
-                return this.$store.getters.getCafesLoadStatus;
-            },
+      ...mapState({
+        cafesLoadStatus: state=> state.cafes.cafesLoadStatus,
+        cafes: state=> state.cafes.cafes
+      })
+      // // 获取 cafes 加载状态
+      //       cafesLoadStatus(){
+      //           return this.$store.getters.getCafesLoadStatus;
+      //       },
 
-            // 获取 cafes
-            cafes(){
-                return this.$store.getters.getCafes;
-            }
+      //       // 获取 cafes
+      //       cafes(){
+      //           return this.$store.getters.getCafes;
+      //       }
     }
   }
 </script>

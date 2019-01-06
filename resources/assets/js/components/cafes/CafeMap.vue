@@ -13,6 +13,7 @@
 
 <script>
 import { mapState } from 'vuex';
+import { ROAST_CONFIG} from '../../config.js';
   export default {
     props: {
         'latitude': {  // 经度
@@ -49,12 +50,17 @@ import { mapState } from 'vuex';
     },
     computed:{
         ...mapState({
-            cafes:state=> state.cafes.cafes
+            cafes:state => state.cafes.cafes
         })
     },
     methods:{
         buildMarkers(){
             this.markers=[];
+            var image = ROAST_CONFIG.APP_URL + '/storage/img/coffee-marker.png';
+            var icon = new AMap.Icon({
+                image: image,  // 图像 URL
+                imageSize: new AMap.Size(19, 33)  // 设置图标尺寸
+            });
             for (var i=0; i< this.cafes.length;i++){
                 var marker=new AMap.Marker({
                     position: AMap.LngLat(parseFloat(this.cafes[i].latitude), parseFloat(this.cafes[i].longitude)),
