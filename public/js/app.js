@@ -22856,7 +22856,7 @@ module.exports = Cancel;
 "use strict";
 /* unused harmony export Store */
 /* unused harmony export install */
-/* unused harmony export mapState */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return mapState; });
 /* unused harmony export mapMutations */
 /* unused harmony export mapGetters */
 /* unused harmony export mapActions */
@@ -56757,6 +56757,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     components: {
         Navigation: __WEBPACK_IMPORTED_MODULE_0__components_global_Navigation_vue___default.a
+    },
+    created: function created() {
+        this.$store.dispatch('loadCafes');
     }
 });
 
@@ -57144,9 +57147,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  created: function created() {
-    this.$store.dispatch('loadCafes');
-  },
+  created: function created() {},
 
   computed: {
     // ...mapState({
@@ -57329,6 +57330,15 @@ exports.push([module.i, "\n\n", ""]);
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_cafes_CafeMap_vue__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_cafes_CafeMap_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_cafes_CafeMap_vue__);
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -57340,7 +57350,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    CafeMap: __WEBPACK_IMPORTED_MODULE_0__components_cafes_CafeMap_vue___default.a
+  }
+});
 
 /***/ }),
 /* 63 */
@@ -57350,7 +57365,18 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c("div", { attrs: { id: "cafes" } }, [
+    _c("div", { staticClass: "grid-x" }, [
+      _c(
+        "div",
+        { staticClass: "large-9 medium-9 small-12 cell" },
+        [_c("cafe-map")],
+        1
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "large-3 medium-3 small-12 cell" })
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -58005,6 +58031,8 @@ if (false) {
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */]);
 
+
+
 /* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
     modules: {
         cafes: __WEBPACK_IMPORTED_MODULE_2__modules_cafes_js__["a" /* cafes */]
@@ -58147,6 +58175,7 @@ var cafes = {
  * Defines the API route we are using.
  */
 var api_url = '';
+var gaode_maps_js_api_key = '439c66a7d1e29e7a5ff0fbd0e8ee390f';
 
 switch ("development") {
     case 'development':
@@ -58158,7 +58187,8 @@ switch ("development") {
 }
 
 var ROAST_CONFIG = {
-    API_URL: api_url
+    API_URL: api_url,
+    GAODE_MAPS_JS_API_KEY: gaode_maps_js_api_key
 };
 
 /***/ }),
@@ -58183,6 +58213,208 @@ exports.push([module.i, "div.page{\r\n    margin-top: 25px;\r\n    min-height: c
 
 // exports
 
+
+/***/ }),
+/* 83 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(84)
+}
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(86)
+/* template */
+var __vue_template__ = __webpack_require__(87)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/cafes/CafeMap.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-1dd0d03f", Component.options)
+  } else {
+    hotAPI.reload("data-v-1dd0d03f", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 84 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(85);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(2)("479c679c", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-1dd0d03f\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./CafeMap.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-1dd0d03f\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./CafeMap.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 85 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\ndiv#cafe-map {\n  width: 100%;\n  height: 400px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 86 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(14);
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: {
+        'latitude': { // 经度
+            type: Number,
+            default: function _default() {
+                return 120.21;
+            }
+        },
+        'longitude': { // 纬度
+            type: Number,
+            default: function _default() {
+                return 30.29;
+            }
+        },
+        'zoom': { // 缩放级别
+            type: Number,
+            default: function _default() {
+                return 4;
+            }
+        }
+    },
+    data: function data() {
+        return {
+            markers: []
+        };
+    },
+    mounted: function mounted() {
+        this.map = new AMap.Map('cafe-map', {
+            center: [this.latitude, this.longitude],
+            zoom: this.zoom
+        });
+        this.clearMarkers();
+        this.buildMarkers();
+    },
+
+    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapState */])({
+        cafes: function cafes(state) {
+            return state.cafes.cafes;
+        }
+    })),
+    methods: {
+        buildMarkers: function buildMarkers() {
+            this.markers = [];
+            for (var i = 0; i < this.cafes.length; i++) {
+                var marker = new AMap.Marker({
+                    position: AMap.LngLat(parseFloat(this.cafes[i].latitude), parseFloat(this.cafes[i].longitude)),
+                    title: this.cafes[i].name
+                });
+
+                this.markers.push(marker);
+            }
+            this.map.add(this.markers);
+        },
+        clearMarkers: function clearMarkers() {
+            for (var i = 0; i < this.markers.length; i++) {
+                this.markers[i].setMap(null);
+            }
+        }
+    },
+    watch: {
+        cafes: function cafes() {
+            this.clearMarkers();
+            this.buildMarkers();
+        }
+    }
+});
+
+/***/ }),
+/* 87 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { attrs: { id: "cafe-map" } })
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-1dd0d03f", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

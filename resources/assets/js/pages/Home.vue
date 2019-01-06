@@ -12,10 +12,10 @@
 </template>
 
 <script>
-  import {mapState} from 'vuex'
+  import { mapState } from 'vuex'
   export default {
     created(){
-      this.$store.dispatch('loadCafes');
+      
     },
     computed:{
       // ...mapState({

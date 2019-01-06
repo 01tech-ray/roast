@@ -13,6 +13,7 @@
                 'csrfToken' => csrf_token(),
             ]); ?>
     </script>
+    <script src="https://webapi.amap.com/maps?v=1.4.8&key=439c66a7d1e29e7a5ff0fbd0e8ee390f"></script>
 </head>
 <body>
     <div id="app">
