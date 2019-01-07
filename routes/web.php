@@ -23,3 +23,5 @@ Route::get('geocode',function(){
     $tem=\App\Utilities\GaodeMaps::geocodeAddress('天城路1号','杭州','浙江');
     return $tem;
 });
+
+Route::get('/cafe/{id}','API\CafesController@getCafe');

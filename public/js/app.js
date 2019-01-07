@@ -56761,6 +56761,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     created: function created() {
         this.$store.dispatch('cafes/loadCafes');
+        this.$store.dispatch('brewMethods/loadBrewMethods');
     }
 });
 
@@ -58020,6 +58021,8 @@ if (false) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__modules_cafes_js__ = __webpack_require__(76);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modules_brewMothods_js__ = __webpack_require__(88);
+
 
 
 
@@ -58028,7 +58031,8 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
 
 /* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
     modules: {
-        cafes: __WEBPACK_IMPORTED_MODULE_2__modules_cafes_js__["a" /* default */]
+        cafes: __WEBPACK_IMPORTED_MODULE_2__modules_cafes_js__["a" /* default */],
+        brewMethods: __WEBPACK_IMPORTED_MODULE_3__modules_brewMothods_js__["a" /* default */]
     }
 }));
 
@@ -58420,6 +58424,71 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-1dd0d03f", module.exports)
   }
 }
+
+/***/ }),
+/* 88 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__api_brewMethod__ = __webpack_require__(89);
+
+
+var state = {
+    brewMethods: [],
+    brewMethodsLoadStatus: 0
+};
+
+var actions = {
+    loadBrewMethods: function loadBrewMethods(_ref) {
+        var commit = _ref.commit;
+
+        commit('setBrewMethodsLoadStatus', 1);
+
+        __WEBPACK_IMPORTED_MODULE_0__api_brewMethod__["a" /* default */].getBrewMethods().then(function (response) {
+            commit('setBrewMethods', response.data);
+            commit('setBrewMethodsLoadStatus', 2);
+        }).catch(function () {
+            commit('setBrewMethods', []);
+            commit('setBrewMethodsLoadStatus', 3);
+        });
+    }
+};
+
+var mutations = {
+    setBrewMethodsLoadStatus: function setBrewMethodsLoadStatus(state, status) {
+        state.brewMethodsLoadStatus = status;
+    },
+    setBrewMethods: function setBrewMethods(state, brewMethods) {
+        state.brewMethods = brewMethods;
+    }
+};
+
+var getters = {};
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+    namespaced: true,
+    state: state,
+    getters: getters,
+    actions: actions,
+    mutations: mutations
+});
+
+/***/ }),
+/* 89 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__config_js__ = __webpack_require__(78);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
+
+
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+    getBrewMethods: function getBrewMethods() {
+        return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get(__WEBPACK_IMPORTED_MODULE_0__config_js__["a" /* ROAST_CONFIG */].API_URL + '/brew-methods');
+    }
+});
 
 /***/ })
 /******/ ]);
