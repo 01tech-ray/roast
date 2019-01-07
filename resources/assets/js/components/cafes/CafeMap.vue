@@ -37,7 +37,8 @@ import { ROAST_CONFIG} from '../../config.js';
     },
     data() {
         return {
-            markers:[]
+            markers:[],
+            infoWindows:[]
         }
     },
     mounted(){
@@ -64,9 +65,19 @@ import { ROAST_CONFIG} from '../../config.js';
             for (var i=0; i< this.cafes.length;i++){
                 var marker=new AMap.Marker({
                     position: AMap.LngLat(parseFloat(this.cafes[i].latitude), parseFloat(this.cafes[i].longitude)),
-                    title: this.cafes[i].name
+                    title: this.cafes[i].name,
+                    icon:icon,
+                    map:this.map
                 });
 
+                var infoWindow = new AMap.InfoWindow({
+                    content:this.cafes[i].name
+                });
+                this.infoWindows.push(infoWindow);
+                
+                marker.on('click',function(){
+                    infoWindow.open(this.getMap(),this.getPosition());
+                })
                 this.markers.push(marker);
             }
             this.map.add(this.markers);

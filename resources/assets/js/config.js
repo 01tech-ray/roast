@@ -2,7 +2,7 @@
  * Defines the API route we are using.
  */
 var api_url = '';
-var app_url='http://roast.test';
+var app_url='';
 var gaode_maps_js_api_key='439c66a7d1e29e7a5ff0fbd0e8ee390f';
 
 

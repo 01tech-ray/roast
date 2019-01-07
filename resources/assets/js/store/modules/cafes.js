@@ -9,21 +9,21 @@ const state={
     cafeAddStatus:0
 }
 const getters={
-    getCafesLoadStatus( state ){
-        return state.cafesLoadStatus;
-      },
+    // getCafesLoadStatus( state ){
+    //     return state.cafesLoadStatus;
+    //   },
   
-      getCafes( state ){
-        return state.cafes;
-      },
+    //   getCafes( state ){
+    //     return state.cafes;
+    //   },
   
-      getCafeLoadStatus( state ){
-        return state.cafeLoadStatus;
-      },
+    //   getCafeLoadStatus( state ){
+    //     return state.cafeLoadStatus;
+    //   },
   
-      getCafe( state ){
-        return state.cafe;
-      }
+    //   getCafe( state ){
+    //     return state.cafe;
+    //   }
 }
 
 const actions={
@@ -68,19 +68,19 @@ const actions={
 
 const mutations={
     setCafesLoadStatus(state,status){
-        this.state.cafesLoadStatus=status;
+        state.cafesLoadStatus=status;
     },
     setCafes(state,cafes){
-        this.state.cafes=cafes;
+        state.cafes=cafes;
     },
     setCafeLoadStatus(state,status){
-        this.state.cafeLoadStatus=status;
+        state.cafeLoadStatus=status;
     },
     setCafe(state,cafe){
-        this.state.cafe=cafe;
+        state.cafe=cafe;
     },
     setCafeAddStatus(state,status){
-        this.state.cafeAddStatus=status;
+        state.cafeAddStatus=status;
     }
 }
 
