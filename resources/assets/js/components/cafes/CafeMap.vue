@@ -38,7 +38,8 @@ import { ROAST_CONFIG} from '../../config.js';
     data() {
         return {
             markers:[],
-            infoWindows:[]
+            infoWindows:[],
+            map:null
         }
     },
     mounted(){
