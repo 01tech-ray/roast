@@ -6,7 +6,11 @@ const state={
     cafe:{},
     cafeLoadStatus:0,
 
-    cafeAddStatus:0
+    cafeAddStatus:0,
+
+    cafeLikeActionStatus:0,
+    cafeUnlikeActionStatus:0,
+    cafeLiked:false
 }
 const getters={
     // getCafesLoadStatus( state ){
@@ -38,15 +42,15 @@ const actions={
             commit('setCafes',[]);
         })
     },
-    loadCafe({commit}){
+    loadCafe({commit},data){
         commit('setCafeLoadStatus',1);
         
-        CafeAPI.getCafe().then(function(response){
+        CafeAPI.getCafe(data.id).then(function(response){
             commit('setCafe',response.data);
+            if(response.data.user_like.length>0){
+                commit('setCafeLikedStatus',true);
+            }
             commit('setCafeLoadStatus',2);
-        }).catch(function(){
-            commit('setCafe',{});
-            commit('setCafeLoadStatus',3);
         })
     },
     addCafe({commit,state,dispatch},data){
@@ -63,7 +67,26 @@ const actions={
                     // 状态3表示添加失败
                     commit( 'setCafeAddStatus', 3 );
                 });
+    },
+    postLikeCafe({commit},data){
+        commit('setCafeLikeActionStatus',1);
+        CafeAPI.postLikeCafe(data.id).then(function(response){
+            commit('setCafeLikedStatus',true);
+            commit('setCafeLikeActionStatus',2);
+        }).catch(function(){
+            commit('setCafeLikeActionStatus',3);
+        })
+    },
+    deleteLikeCafe({commit},data){
+        commit('setCafeUnlikeActionStatus',1);
+        CafeAPI.deleteLikeCafe(data.id).then(function(response){
+            commit('setCafeUnlikeActionStatus',2);
+            commit('setCafeLikedStatus',false);
+        }).catch(function(){
+            commit('setCafeUnlikeActionStatus',3);
+        })
     }
+
 }
 
 const mutations={
@@ -81,6 +104,15 @@ const mutations={
     },
     setCafeAddStatus(state,status){
         state.cafeAddStatus=status;
+    },
+    setCafeLikeActionStatus(state,status){
+        state.cafeLikeActionStatus = status;
+    },
+    setCafeLikedStatus(state,status){
+        state.cafeLiked=status;
+    },
+    setCafeUnlikeActionStatus(state,status){
+        state.cafeUnlikeActionStatus =status;
     }
 }
 
